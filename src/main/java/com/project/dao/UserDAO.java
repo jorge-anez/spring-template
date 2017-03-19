@@ -1,6 +1,6 @@
-package net.codejava.spring.dao;
+package com.project.dao;
 
-import net.codejava.spring.model.User;
+import com.project.model.User;
 
 import java.util.List;
 

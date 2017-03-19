@@ -1,4 +1,4 @@
-package net.codejava.spring.model;
+package com.project.model;
 
 /**
  * Created by JORGE-HP on 30/1/2017.

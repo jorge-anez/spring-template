@@ -1,11 +1,11 @@
-package net.codejava.spring.dao;
+package com.project.dao;
 
 /**
  * Created by JORGE-HP on 31/1/2017.
  */
 import java.util.List;
 
-import net.codejava.spring.model.Person;
+import com.project.model.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

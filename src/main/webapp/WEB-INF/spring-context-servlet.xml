@@ -33,7 +33,7 @@
         <property name="configLocation" value="classpath:hibernate.cfg.xml" />
         <property name="annotatedClasses">
             <list>
-                <value>net.codejava.spring.model.Person</value>
+                <value>com.project.model.Person</value>
             </list>
         </property>
     </bean>
@@ -44,13 +44,13 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
-    <bean id="userDao" class="net.codejava.spring.dao.UserDAOImpl">
+    <bean id="userDao" class="com.project.dao.UserDAOImpl">
         <constructor-arg>
             <ref bean="sessionFactory" />
         </constructor-arg>
     </bean>
 
-    <bean id="personDao" class="net.codejava.spring.dao.PersonDAOImpl">
+    <bean id="personDao" class="com.project.dao.PersonDAOImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

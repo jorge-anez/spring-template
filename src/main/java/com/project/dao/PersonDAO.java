@@ -1,9 +1,10 @@
-package net.codejava.spring.dao;
+package com.project.dao;
 
 /**
  * Created by JORGE-HP on 31/1/2017.
  */
-import net.codejava.spring.model.Person;
+import com.project.model.Person;
+
 import java.util.List;
 
 public interface PersonDAO {
