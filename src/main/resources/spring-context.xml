@@ -26,11 +26,7 @@
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:hibernate.cfg.xml" />
-        <property name="annotatedClasses">
-            <list>
-                <value>com.project.model.Person</value>
-            </list>
-        </property>
+        <property name="packagesToScan" value="com.project.model" />
     </bean>
     <tx:annotation-driven />
     <bean id="transactionManager"
