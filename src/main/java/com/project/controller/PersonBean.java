@@ -27,15 +27,6 @@ public class PersonBean implements Serializable {
     }
 
     public void save(){
-        //personService.addPerson(this);
-        System.out.println("Person persisten..." + (personService == null));
-    }
-
-    public PersonService getPersonService() {
-        return personService;
-    }
-
-    public void setPersonService(PersonService personService) {
-        this.personService = personService;
+        personService.addPerson(this);
     }
 }

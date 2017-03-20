@@ -8,10 +8,13 @@ import java.util.List;
 import com.project.model.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class PersonDAOImpl implements PersonDAO {
 
+    @Autowired
     private SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
@@ -19,27 +22,17 @@ public class PersonDAOImpl implements PersonDAO {
     }
 
     public void save(Person p) {
-        Session session = this.sessionFactory.openSession();
-        Transaction tx = session.beginTransaction();
+        Session session = this.sessionFactory.getCurrentSession();
         session.persist(p);
-        tx.commit();
-        session.close();
     }
 
     public List<Person> list() {
-        Session session = this.sessionFactory.openSession();
+        Session session = this.sessionFactory.getCurrentSession();
         List<Person> personList = session.createQuery("from Person").list();
         session.close();
         return personList;
     }
 
-    public Person getPerson(){
-        Session session = this.sessionFactory.openSession();
-        List<Person> list = session.getNamedQuery("getMale").list();
-        if(list != null && !list.isEmpty())
-            return list.get(0);
-        return null;
-    }
 }
 
 

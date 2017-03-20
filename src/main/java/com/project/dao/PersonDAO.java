@@ -13,5 +13,4 @@ public interface PersonDAO {
 
     public List<Person> list();
 
-    public Person getPerson();
 }
