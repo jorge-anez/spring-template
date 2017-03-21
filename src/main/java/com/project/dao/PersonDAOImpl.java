@@ -3,36 +3,19 @@ package com.project.dao;
 /**
  * Created by JORGE-HP on 31/1/2017.
  */
-import java.util.List;
-
-import com.project.model.Person;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.project.hibernate.model.Person;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.PostConstruct;
+
 @Repository
-public class PersonDAOImpl implements PersonDAO {
+public class PersonDAOImpl extends GenericDAOImpl<Person, Integer> implements PersonDAO{
+    public void method1() {}
 
-    @Autowired
-    private SessionFactory sessionFactory;
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    @PostConstruct
+    public void init(){
+        super.setClassType(Person.class);
     }
-
-    public void save(Person p) {
-        Session session = this.sessionFactory.getCurrentSession();
-        session.persist(p);
-    }
-
-    public List<Person> list() {
-        Session session = this.sessionFactory.getCurrentSession();
-        List<Person> personList = session.createQuery("from Person").list();
-        session.close();
-        return personList;
-    }
-
 }
 
 

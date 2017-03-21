@@ -26,28 +26,12 @@
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:hibernate.cfg.xml" />
-        <property name="packagesToScan" value="com.project.model" />
+        <property name="packagesToScan" value="com.project.hibernate.model" />
     </bean>
     <tx:annotation-driven />
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-
-    <!--
-    <bean id="personDao" class="com.project.dao.PersonDAOImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    <bean id="personService" class="com.project.services.impl.PersonServiceImpl">
-        <property name="personDAO" ref="personDao"/>
-    </bean>
-    <bean id="myProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="locations">
-            <list>
-                <value>classpath*:test.properties</value>
-            </list>
-        </property>
-    </bean>
-    -->
 
 </beans>

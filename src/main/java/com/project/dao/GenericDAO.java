@@ -1,0 +1,22 @@
+package com.project.dao;
+
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+
+import java.util.List;
+
+/**
+ * Created by user on 3/21/2017.
+ */
+public interface GenericDAO<T, K> {
+    K save(T t);
+    void update(T t);
+    void remove(T t);
+    T find(K key);
+    List<T> findAll();
+    List<T> findByCriteria(Criterion... criterions);
+    Query getNamedQuery(String name);
+    SessionFactory getSessionFactory();
+}
+

@@ -1,7 +1,7 @@
 package com.project.services;
 
 import com.project.controller.PersonBean;
-import com.project.model.Person;
+import com.project.model.transfer.PersonResponse;
 
 import java.util.List;
 
@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface PersonService {
     void addPerson(PersonBean p);
-    List<Person> listPersons();
+    List<PersonResponse> findAll();
 }
