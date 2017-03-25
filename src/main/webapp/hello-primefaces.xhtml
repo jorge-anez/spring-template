@@ -15,13 +15,13 @@
             <p:messages id="msgs" />
             <h:panelGrid columns="3" cellpadding="5">
                 <p:outputLabel for="firstname" value="Firstname:" />
-                <p:inputText id="firstname" value="#{primefacesBean.firstName}" required="true" label="Firstname">
+                <p:inputText id="firstname" value="#{personBean.personTransfer.fistName}" required="true" label="Firstname">
                     <f:validateLength minimum="2" />
                 </p:inputText>
                 <p:message for="firstname" display="icon" />
 
                 <p:outputLabel for="lastname" value="Lastname:" />
-                <p:inputText id="lastname" value="#{primefacesBean.lastName}" label="Lastname" required="true">
+                <p:inputText id="lastname" value="#{personBean.personTransfer.lastNsme}" label="Lastname" required="true">
                     <f:validateLength minimum="2" />
                     <p:ajax update="msgLastname" event="keyup" />
                 </p:inputText>
@@ -29,7 +29,7 @@
 
             </h:panelGrid>
 
-            <p:commandButton value="Save" update="panel" actionListener="#{primefacesBean.save}" icon="ui-icon-check" />
+            <p:commandButton value="Save" update="panel" actionListener="#{personBean.addPerson}" icon="ui-icon-check" />
         </p:panel>
     </h:form>
 </h:body>

@@ -9,17 +9,17 @@
     <title>Primefaces Hello World</title>
 </h:head>
 <h:body>
-    <p:dataTable var="person" value="#{personBean.personResponseList}">
-        <p:column headerText="Id">
-            <h:outputText value="#{person.id}" />
+    <p:dataTable var="person" value="#{personBean.personTransfers}">
+        <p:column headerText="First Name" sortBy="#{person.fistName}">
+            <h:outputText value="#{person.fistName}" />
         </p:column>
 
-        <p:column headerText="Year">
-            <h:outputText value="#{person.name}" />
+        <p:column headerText="Last Name">
+            <h:outputText value="#{person.lastNsme}" />
         </p:column>
 
-        <p:column headerText="Brand">
-            <h:outputText value="#{person.country}" />
+        <p:column headerText="Last Name">
+            <h:outputText value="#{person.lastNsme}" />
         </p:column>
     </p:dataTable>
 </h:body>

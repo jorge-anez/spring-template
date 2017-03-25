@@ -13,42 +13,56 @@ import javax.persistence.NamedQuery;
  */
 
 @Entity
-@Table(name="Person")
-@NamedQuery(name = "getMale", query = "from Person p where p.name = 'jorge'")
+@Table(name="t_person")
+//@NamedQuery(name = "getUserByUsername", query = "from Person p where p.name = username?")
 public class Person {
     @Id
-    @Column(name="id")
+    @Column(name="person_id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private String country;
+    private int personId;
 
-    public int getId() {
-        return id;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String address;
+
+    public int getPersonId() {
+        return personId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPersonId(int personId) {
+        this.personId = personId;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getCountry() {
-        return country;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    @Override
-    public String toString(){
-        return "id="+id+", name="+name+", country="+country;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
