@@ -12,5 +12,5 @@ public interface PersonService {
     void addPerson(String firstName, String lastName, String email, String address);
     void addPerson(PersonTransfer p);
     List<PersonTransfer> listPersonsTransfer();
-    //List<PersonResponse> findAll();
+    PersonTransfer findUserByUsername(String username);
 }

@@ -70,22 +70,15 @@ public class PersonServiceImpl implements PersonService {
         return personTransfers;
     }
 
-
-/*
     @Transactional
-    public List<PersonResponse> findAll() {
-        List<PersonResponse> personResponseList = new ArrayList<PersonResponse>();
-
-        List<Person> personList = personDAO.findAll();
-        for (Person e: personList){
-            PersonResponse p = new PersonResponse();
-            p.setId(e.getId());
-            p.setName(e.getName());
-            p.setCountry(e.getCountry());
-            personResponseList.add(p);
-        }
-
-        return personResponseList;
+    public PersonTransfer findUserByUsername(String username) {
+        Person person =(Person) personDAO.getNamedQuery("getUserByUsername").setString("username", username).uniqueResult();
+        if(person == null)
+            return null;
+        PersonTransfer personTransfer = new PersonTransfer();
+        personTransfer.setFistName(person.getFirstName());
+        personTransfer.setLastNsme(person.getLastName());
+        return personTransfer;
     }
-    */
+
 }
