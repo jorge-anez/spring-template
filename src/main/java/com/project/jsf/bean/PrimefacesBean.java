@@ -1,6 +1,5 @@
-package com.project.controller;
+package com.project.jsf.bean;
 
-import com.project.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,13 +14,13 @@ import java.io.Serializable;
 public class PrimefacesBean implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Autowired
-    private PersonService personService;
+    //@Autowired
+    //private PersonService personService;
 
     private String firstName;
     private String lastName;
     public void save(){
-        System.out.println("save example" + personService);
+        //System.out.println("save example" + personService);
     }
 
     public String getFirstName() {

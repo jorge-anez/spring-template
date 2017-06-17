@@ -5,12 +5,9 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
 import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 /**
@@ -18,9 +15,16 @@ import java.util.List;
  */
 @Repository
 public class GenericDAOImpl<T, K extends Serializable> implements GenericDAO<T, K> {
-    @Autowired
     private SessionFactory sessionFactory;
     private Class<T> classType;
+
+    public GenericDAOImpl() {
+    }
+
+    public GenericDAOImpl(SessionFactory sessionFactory, Class<T> classType) {
+        this.sessionFactory = sessionFactory;
+        this.classType = classType;
+    }
 
     public K save(T t) {
         Session session = this.sessionFactory.getCurrentSession();
@@ -53,6 +57,13 @@ public class GenericDAOImpl<T, K extends Serializable> implements GenericDAO<T, 
         for(Criterion c: criterions)
             criteria.add(c);
         return criteria.list();
+    }
+
+    public T findByCriteriaUniqueResult(Criterion... criterions) {//predicados
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(classType);
+        for(Criterion c: criterions)
+            criteria.add(c);
+        return (T)criteria.uniqueResult();
     }
 
     public Query getNamedQuery(String name) {

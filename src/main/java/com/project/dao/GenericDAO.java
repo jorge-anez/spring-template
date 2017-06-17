@@ -1,6 +1,5 @@
 package com.project.dao;
 
-import com.project.hibernate.model.Person;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
@@ -17,6 +16,7 @@ public interface GenericDAO<T, K> { //clase generica tabla, id
     T find(K key);
     List<T> findAll();
     List<T> findByCriteria(Criterion... criterions);
+    public T findByCriteriaUniqueResult(Criterion... criterions);
     Query getNamedQuery(String name);
 
     SessionFactory getSessionFactory();
